@@ -5,6 +5,7 @@
  */
 package com.przemo.wicketguicontrols.windows;
 
+import com.przemo.wicketguicontrols.windows.panels.ModalWindowContentPanel;
 import org.apache.wicket.extensions.ajax.markup.html.modal.ModalWindow;
 import org.apache.wicket.markup.html.panel.Panel;
 
@@ -20,7 +21,7 @@ public abstract class AbstractModalWindow extends ModalWindow {
     }
 
     private void buildMe(){
-        ModalWindowContentPanel cp = new ModalWindowContentPanel("content", null);
+        ModalWindowContentPanel cp = new ModalWindowContentPanel("content", setContentPanel(), setControlButtons());
         cp.add(setControlButtons());
         cp.add(setContentPanel());
         setContent(cp);
