@@ -34,7 +34,7 @@ public class FormularzBuilder {
                     p = addNewPage(f);
                 }
                 if(w.length==5 && p!=null && p.getPola()!=null){
-                    p.getPola().add(new Pole(Integer.valueOf(w[1]), Integer.valueOf(w[2]), w[0], w[3], w[4].equals("T")));                  
+                    p.getPola().add(new Pole(Integer.valueOf(w[1]), Integer.valueOf(w[2]), w[0], w[3], w[4].equals("T")));  
                 }
                 line=reader.readLine();
             }           

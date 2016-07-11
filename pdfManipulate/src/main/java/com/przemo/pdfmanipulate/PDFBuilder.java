@@ -42,7 +42,7 @@ public class PDFBuilder {
                 for (Pole p : page.getPola()) {
                     int x = p.getPozycjaX();
                     if(p.isRightAlign()){
-                        x-=f.getStringWidth(p.getWartosc());
+                        x-=f.getStringWidth(p.getWartosc())/1000*fontSize;
                     }
                     contentStream.setTextMatrix(Matrix.getTranslateInstance(x, pageSize.getHeight() - p.getPozycjaY()));
                     contentStream.showText(p.getWartosc());
