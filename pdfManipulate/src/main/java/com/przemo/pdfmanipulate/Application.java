@@ -21,9 +21,9 @@ public class Application {
     public static void main(String[] arg) {
         
         try {
-            PDDocument doc = PDFBuilder.build("H:\\dra.pdf", FormularzBuilder.build("H:\\zusdra1", "ZUS DRA"));
+            PDDocument doc = PDFBuilder.build("H:\\dra.pdf", FormularzBuilder.buildAndFill("H:\\zusdra2", "ZUS DRA", new FlatFileFormDataProvider("H:\\dra_dane")));
             if(doc!=null){
-                doc.save("H:\\draY1.pdf");
+                doc.save("H:\\draY2.pdf");
             }
         } catch (IOException ex) {
             Logger.getLogger(Application.class.getName()).log(Level.SEVERE, null, ex);

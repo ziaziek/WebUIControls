@@ -20,6 +20,13 @@ public class FormularzBuilder {
     
     public static final String pageSign = "[Page]";
     
+    public static Formularz buildAndFill(final String path, final String nazwa, final IFormDataProvider dataProvider) throws IOException{
+        Formularz f = build(path, nazwa);
+        dataProvider.wczytajDane();
+        dataProvider.wypelnijPolaDanymi(f);
+        return f;
+    }
+    
     public static Formularz build(final String path, final String nazwa) throws FileNotFoundException, IOException{
         Formularz f = new Formularz();
         f.setNazwa(nazwa);
@@ -33,8 +40,8 @@ public class FormularzBuilder {
                 if(w.length==1 && w[0].equals(pageSign)){
                     p = addNewPage(f);
                 }
-                if(w.length==5 && p!=null && p.getPola()!=null){
-                    p.getPola().add(new Pole(Integer.valueOf(w[1]), Integer.valueOf(w[2]), w[0], w[3], w[4].equals("T")));  
+                if(w.length==4 && p!=null && p.getPola()!=null){
+                    p.getPola().add(new Pole(Integer.valueOf(w[1]), Integer.valueOf(w[2]), w[0], "", w[3].equals("T")));  
                 }
                 line=reader.readLine();
             }           
