@@ -40,7 +40,11 @@ public class PDFBuilder {
                 contentStream.beginText();
                 contentStream.setNonStrokingColor(Color.black);
                 for (Pole p : page.getPola()) {
-                    contentStream.setTextMatrix(Matrix.getTranslateInstance(p.getPozycjaX(), pageSize.getHeight() - p.getPozycjaY()));
+                    int x = p.getPozycjaX();
+                    if(p.isRightAlign()){
+                        x-=f.getStringWidth(p.getWartosc());
+                    }
+                    contentStream.setTextMatrix(Matrix.getTranslateInstance(x, pageSize.getHeight() - p.getPozycjaY()));
                     contentStream.showText(p.getWartosc());
                 }
                 contentStream.endText();

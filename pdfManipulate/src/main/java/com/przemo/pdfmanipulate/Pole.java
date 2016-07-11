@@ -13,7 +13,16 @@ public class Pole {
     
     private int pozycjaX, pozycjaY;
     private String oznaczenie, wartosc;
+    private boolean rightAlign;
 
+    public boolean isRightAlign() {
+        return rightAlign;
+    }
+
+    public void setRightAlign(boolean rightAlign) {
+        this.rightAlign = rightAlign;
+    }
+    
     public int getPozycjaX() {
         return pozycjaX;
     }
@@ -48,10 +57,11 @@ public class Pole {
     
     public Pole(){};
     
-    public Pole(int x, int y, String oznaczenie, String wartosc){
+    public Pole(int x, int y, String oznaczenie, String wartosc, boolean rightAlign){
         this.pozycjaX=x;
         this.pozycjaY=y;
         this.oznaczenie=oznaczenie;
         this.wartosc=wartosc;
+        this.rightAlign=rightAlign;
     }
 }
